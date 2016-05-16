@@ -111,7 +111,7 @@ from_binary(L) ->
 
 %% Return a key clock to use for revisioning IFTVPs
 current_key_clock() ->
-    {MegaSeconds,Seconds,MilliSeconds}=erlang:now(),
+    {MegaSeconds,Seconds,MilliSeconds}=os:timestamp(),
     (MegaSeconds * 1000000000000) +
     (Seconds * 1000000) +
     MilliSeconds.
@@ -119,7 +119,7 @@ current_key_clock() ->
 %% Choose a random element from the List.
 -spec choose(list()) -> any().
 choose(List) ->
-    _ = random:seed(now()),
+    _ = random:seed(os:timestamp()),
     N = random:uniform(length(List)),
     lists:nth(N, List).
 
