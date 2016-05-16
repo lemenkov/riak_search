@@ -172,7 +172,7 @@ json_test() ->
                {<<"subtitle_children_children">>, <<"This is an example feed">>},
                {<<"rights_attributes_type">>, <<"xhtml">> }, 
                {<<"rights_children_name">>,<<"p">>}, 
-               {<<"rights_children_children">>,<<"Copyright © James M Snell" >>},
+               {<<"rights_children_children">>,<<"Copyright © James M Snell"/utf8>>},
                {<<"updated">>,<<"2007-10-14T12:12:12.000Z">>}, 
                {<<"authors_name">>,<<"James M Snell">>}, 
                {<<"authors_email">>,<<"jasnell@example.org">>}, 
