@@ -115,7 +115,7 @@ integer_termify(T, PadSize, Acc, ResultAcc) ->
     try 
         %% Ensure that we have a valid integer.
         Term = lists:reverse(Acc),
-        _ValidInteger = list_to_integer(Term),
+        _ = list_to_integer(Term),
         BTerm = list_to_binary(Term),
         PaddedTerm = integer_pad(BTerm, PadSize),
         integer(T, PadSize, [], [PaddedTerm|ResultAcc])
