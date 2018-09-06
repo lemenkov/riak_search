@@ -165,7 +165,7 @@ split_next_batch(State) ->
     Files = State#state.files,
     {ok, FilesLeft} = application:get_env(riak_search, dir_index_batch_size),
     {ok, BytesLeft} = application:get_env(riak_search, dir_index_batch_bytes),
-    {Batch, NewFiles} = split_next_batch_inner(random:uniform(FilesLeft), random:uniform(BytesLeft), Files, []),
+    {Batch, NewFiles} = split_next_batch_inner(rand:uniform(FilesLeft), rand:uniform(BytesLeft), Files, []),
 
     %% Return {TotalBytes, Files, NewState}...
     TotalBytes = lists:sum([element(1, X) || X <- Batch]),

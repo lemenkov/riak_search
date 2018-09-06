@@ -149,7 +149,7 @@ file_to_array(FilePath) ->
 valgen(_ID, MaxFields, MaxTerms) ->
     fun(Fields, Terms) ->
         %% Get the field names...
-        NumFields = random:uniform(MaxFields) + 1,
+        NumFields = rand:uniform(MaxFields) + 1,
         FieldNames = lists:usort([choose(Fields) || _ <- lists:seq(1, NumFields)]),
 
         %% Create the fields...
@@ -159,14 +159,14 @@ valgen(_ID, MaxFields, MaxTerms) ->
 %% @private
 construct_field(MaxTerms, Terms) ->
     %% Get the list of terms...
-    NumTerms = random:uniform(MaxTerms) + 1,
+    NumTerms = rand:uniform(MaxTerms) + 1,
     [choose(Terms) || _ <- lists:seq(1, NumTerms)].
 
 %% Choose a random element from the List or Array.
 choose(List) when is_list(List) ->
-    N = random:uniform(length(List)),
+    N = rand:uniform(length(List)),
     lists:nth(N, List);
 choose(Array) when element(1, Array) == array ->
-    N = random:uniform(Array:size()),
+    N = rand:uniform(Array:size()),
     Array:get(N - 1).
         

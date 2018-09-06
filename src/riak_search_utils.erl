@@ -119,8 +119,8 @@ current_key_clock() ->
 %% Choose a random element from the List.
 -spec choose(list()) -> any().
 choose(List) ->
-    _ = random:seed(os:timestamp()),
-    N = random:uniform(length(List)),
+    _ = rand:seed(os:timestamp()),
+    N = rand:uniform(length(List)),
     lists:nth(N, List).
 
 %% Take the first defined element.
